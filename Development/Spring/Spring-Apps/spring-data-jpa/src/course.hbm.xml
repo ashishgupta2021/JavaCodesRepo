@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+     
+<hibernate-mapping>
+	<class name="Course" table="course">
+		<id name="id" type="long" column="ID">
+			<generator class="identity"></generator>
+		</id>
+		<property name="title" type="string" column="TITLE" length="100" not-null="true" />
+		<property name="beginDate" type="date" column="BEGIN_DATE" />
+		<property name="endDate" type="date" column="END_DATE" />
+		<property name="fee" type="int" column="FEE" />
+	</class>
+</hibernate-mapping>

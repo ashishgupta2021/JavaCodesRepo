@@ -1,0 +1,58 @@
+#	_1_CreateCoursesAndStudentsApp.java
+
+// instructor, instructor_detail & review table are not having any data
+
+Saving the Course!!!
+Hibernate: insert into course (instructor_id, title) values (?, ?)
+Saved the Course: Course [id=10, title=Programming Language, instructor=null]
+Saving the students ...
+Hibernate: insert into student (email, first_name, last_name) values (?, ?, ?)
+Hibernate: insert into student (email, first_name, last_name) values (?, ?, ?)
+Saved Students: [Student [id=1, firstName=Ashish, lastName=Gupta, email=ashish@gmail.com], Student [id=2, firstName=Manish, lastName=Gupta, email=manish@gmail.com]]
+Hibernate: insert into course_student (course_id, student_id) values (?, ?)
+Hibernate: insert into course_student (course_id, student_id) values (?, ?)
+Done!
+
+
+
+# _2_CreateMoreCoursesForStudentsApp.java
+
+// instructor, instructor_detail & review table are not having any data
+
+
+Hibernate: select student0_.id as id1_5_0_, student0_.email as email2_5_0_, student0_.first_name as first_na3_5_0_, student0_.last_name as last_nam4_5_0_ from student student0_ where student0_.id=?
+Loaded Student: Student [id=2, firstName=Manish, lastName=Gupta, email=manish@gmail.com]
+Hibernate: select courses0_.student_id as student_1_1_0_, courses0_.course_id as course_i2_1_0_, course1_.id as id1_0_1_, course1_.instructor_id as instruct3_0_1_, course1_.title as title2_0_1_, instructor2_.id as id1_2_2_, instructor2_.email as email2_2_2_, instructor2_.first_name as first_na3_2_2_, instructor2_.instructor_detail_id as instruct5_2_2_, instructor2_.last_name as last_nam4_2_2_, instructor3_.id as id1_3_3_, instructor3_.hobby as hobby2_3_3_, instructor3_.youtube_channel as youtube_3_3_3_ from course_student courses0_ inner join course course1_ on courses0_.course_id=course1_.id left outer join instructor instructor2_ on course1_.instructor_id=instructor2_.id left outer join instructor_detail instructor3_ on instructor2_.instructor_detail_id=instructor3_.id where courses0_.student_id=?
+Courses : [Course [id=10, title=Programming Language, instructor=null]]
+Saving the courses
+Hibernate: insert into course (instructor_id, title) values (?, ?)
+Hibernate: insert into course (instructor_id, title) values (?, ?)
+Hibernate: insert into course_student (course_id, student_id) values (?, ?)
+Hibernate: insert into course_student (course_id, student_id) values (?, ?)
+Done!
+
+
+# _3_DeleteCoursesApp.java
+
+Hibernate: select course0_.id as id1_0_0_, course0_.instructor_id as instruct3_0_0_, course0_.title as title2_0_0_, instructor1_.id as id1_2_1_, instructor1_.email as email2_2_1_, instructor1_.first_name as first_na3_2_1_, instructor1_.instructor_detail_id as instruct5_2_1_, instructor1_.last_name as last_nam4_2_1_, instructor2_.id as id1_3_2_, instructor2_.hobby as hobby2_3_2_, instructor2_.youtube_channel as youtube_3_3_2_ from course course0_ left outer join instructor instructor1_ on course0_.instructor_id=instructor1_.id left outer join instructor_detail instructor2_ on instructor1_.instructor_detail_id=instructor2_.id where course0_.id=?
+Deleting Course
+Hibernate: select reviews0_.course_id as course_i3_4_0_, reviews0_.id as id1_4_0_, reviews0_.id as id1_4_1_, reviews0_.comment as comment2_4_1_ from review reviews0_ where reviews0_.course_id=?
+Hibernate: delete from course_student where course_id=?
+Hibernate: delete from course where id=?
+Done!
+
+# _4_DeleteStudentsApp.java
+
+Hibernate: select student0_.id as id1_5_0_, student0_.email as email2_5_0_, student0_.first_name as first_na3_5_0_, student0_.last_name as last_nam4_5_0_ from student student0_ where student0_.id=?
+Deleting Student
+Hibernate: delete from course_student where student_id=?
+Hibernate: delete from student where id=?
+Done!
+
+# _5_GetCoursesForStudentsApp.java
+
+Hibernate: select student0_.id as id1_5_0_, student0_.email as email2_5_0_, student0_.first_name as first_na3_5_0_, student0_.last_name as last_nam4_5_0_ from student student0_ where student0_.id=?
+Loaded Student: Student [id=2, firstName=Manish, lastName=Gupta, email=manish@gmail.com]
+Hibernate: select courses0_.student_id as student_1_1_0_, courses0_.course_id as course_i2_1_0_, course1_.id as id1_0_1_, course1_.instructor_id as instruct3_0_1_, course1_.title as title2_0_1_, instructor2_.id as id1_2_2_, instructor2_.email as email2_2_2_, instructor2_.first_name as first_na3_2_2_, instructor2_.instructor_detail_id as instruct5_2_2_, instructor2_.last_name as last_nam4_2_2_, instructor3_.id as id1_3_3_, instructor3_.hobby as hobby2_3_3_, instructor3_.youtube_channel as youtube_3_3_3_ from course_student courses0_ inner join course course1_ on courses0_.course_id=course1_.id left outer join instructor instructor2_ on course1_.instructor_id=instructor2_.id left outer join instructor_detail instructor3_ on instructor2_.instructor_detail_id=instructor3_.id where courses0_.student_id=?
+Courses: [Course [id=11, title=Mobile Development, instructor=null], Course [id=12, title=Game Development, instructor=null]]
+Done!

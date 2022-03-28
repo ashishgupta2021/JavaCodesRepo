@@ -1,0 +1,22 @@
+2021-08-18 20:55:33.446  INFO 87123 --- [restartedMain] m.c.CurrencyConversionServiceApplication : Starting CurrencyConversionServiceApplication using Java 9.0.1 on ashishguriyas-MacBook-Pro.local with PID 87123 (/Users/ashishguriyakumar/Desktop/spring-boot-master-microservice/currency-conversion-service/target/classes started by ashishguriyakumar in /Users/ashishguriyakumar/Desktop/spring-boot-master-microservice/currency-conversion-service)
+2021-08-18 20:55:33.448  INFO 87123 --- [restartedMain] m.c.CurrencyConversionServiceApplication : No active profile set, falling back to default profiles: default
+2021-08-18 20:55:33.493  INFO 87123 --- [restartedMain] o.s.b.context.config.ConfigDataLoader    : Fetching config from server at : http://localhost:8888
+2021-08-18 20:55:33.494  INFO 87123 --- [restartedMain] o.s.b.context.config.ConfigDataLoader    : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2021-08-18 20:55:33.494  WARN 87123 --- [restartedMain] o.s.b.context.config.ConfigDataLoader    : Could not locate PropertySource ([ConfigServerConfigDataResource@4b8838e4 uris = array<String>['http://localhost:8888'], optional = true, profiles = list['default']]): I/O error on GET request for "http://localhost:8888/currency-conversion/default": Connection refused (Connection refused); nested exception is java.net.ConnectException: Connection refused (Connection refused)
+2021-08-18 20:55:33.495  INFO 87123 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-08-18 20:55:33.495  INFO 87123 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-08-18 20:55:34.610  INFO 87123 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=fc37dcf2-eac9-3a9e-90a7-5f64a6d474c3
+2021-08-18 20:55:35.093  INFO 87123 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8100 (http)
+2021-08-18 20:55:35.102  INFO 87123 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-18 20:55:35.103  INFO 87123 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.50]
+2021-08-18 20:55:35.179  INFO 87123 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-08-18 20:55:35.180  INFO 87123 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1684 ms
+2021-08-18 20:55:35.772  WARN 87123 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2021-08-18 20:55:36.559  INFO 87123 --- [RMI TCP Connection(3)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-18 20:55:36.560  INFO 87123 --- [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-18 20:55:36.791  INFO 87123 --- [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2021-08-18 20:55:36.800  INFO 87123 --- [RMI TCP Connection(3)-127.0.0.1] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-08-18 20:55:36.810  INFO 87123 --- [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 250 ms
+2021-08-18 20:55:36.953  INFO 87123 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8100 (http) with context path ''
+2021-08-18 20:55:37.962  INFO 87123 --- [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2021-08-18 20:55:37.970  INFO 87123 --- [restartedMain] m.c.CurrencyConversionServiceApplication : Started CurrencyConversionServiceApplication in 6.188 seconds (JVM running for 12.14)

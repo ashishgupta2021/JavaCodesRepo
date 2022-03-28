@@ -1,0 +1,10 @@
+div {
+    width: 300px;
+    padding: 4px;
+    background-color: lightblue;
+    box-shadow: circle;
+}
+div.container {
+    width: 900px;
+    padding:40px;
+}

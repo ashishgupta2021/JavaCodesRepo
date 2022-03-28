@@ -1,0 +1,36 @@
+<div class="container">
+
+    <h5> Property Binding</h5>
+    <div><button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
+    </div>
+
+    <h5> Event Binding</h5>
+
+    <div><button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server With Event
+            Binding</button>
+    </div>
+    <p>{{ serverCreationStatus}}</p>
+
+    <h5> Event Binding With Input and Output</h5>
+
+    <div>
+        <label>Server Name</label>
+        <input type="text" class="form-control" (input)="onUpdateServerName($event)">
+        <p>{{ serverName}}</p>
+    </div>
+
+    <h5> Two way binding</h5>
+    <div>
+        <label>Server Name</label>
+        <input type="text" class="form-control" [(ngModel)]="serverName">
+        <p>{{ serverName}}</p>
+    </div>
+
+
+    <h5> Two way binding</h5>
+    <div>
+        <label>Server Name</label>
+        <input type="text" class="form-control" [(ngModel)]="serverName">
+        <p>{{ serverName}}</p>
+    </div>
+</div>

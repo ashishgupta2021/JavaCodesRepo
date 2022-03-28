@@ -1,0 +1,41 @@
+# _1_CreateCoursesAndReviewsApp.java output
+
+Saving the Course
+Course [id=0, title=Programming Language, instructor=null]
+[Review [id=0, comment=Great Course], Review [id=0, comment=Cool Course], Review [id=0, comment=Awesome Course]]
+Hibernate: insert into course (instructor_id, title) values (?, ?)
+Hibernate: insert into review (comment) values (?)
+Hibernate: insert into review (comment) values (?)
+Hibernate: insert into review (comment) values (?)
+Hibernate: update review set course_id=? where id=?
+Hibernate: update review set course_id=? where id=?
+Hibernate: update review set course_id=? where id=?
+Done!
+
+# After running the first App, Instructor and Instructor Detail Table not having the data.
+
+
+# _2_DeleteCoursesAndReviewsApp.java output
+
+Hibernate: select course0_.id as id1_0_0_, course0_.instructor_id as instruct3_0_0_, course0_.title as title2_0_0_, instructor1_.id as id1_1_1_, instructor1_.email as email2_1_1_, instructor1_.first_name as first_na3_1_1_, instructor1_.instructor_detail_id as instruct5_1_1_, instructor1_.last_name as last_nam4_1_1_, instructor2_.id as id1_2_2_, instructor2_.hobby as hobby2_2_2_, instructor2_.youtube_channel as youtube_3_2_2_ from course course0_ left outer join instructor instructor1_ on course0_.instructor_id=instructor1_.id left outer join instructor_detail instructor2_ on instructor1_.instructor_detail_id=instructor2_.id where course0_.id=?
+Deleting Course: Course [id=10, title=Programming Language, instructor=null]
+Hibernate: select reviews0_.course_id as course_i3_3_0_, reviews0_.id as id1_3_0_, reviews0_.id as id1_3_1_, reviews0_.comment as comment2_3_1_ from review reviews0_ where reviews0_.course_id=?
+Course Review: [Review [id=1, comment=Great Course], Review [id=2, comment=Cool Course], Review [id=3, comment=Awesome Course]]
+Hibernate: update review set course_id=null where course_id=?
+Hibernate: delete from review where id=?
+Hibernate: delete from review where id=?
+Hibernate: delete from review where id=?
+Hibernate: delete from course where id=?
+Done!
+
+# After running the second app, the course and review table not having the data
+
+# _3_AppEagerLazySessionCloseResolveOption1.java
+
+# We run the App 1 First and then this
+
+Hibernate: select course0_.id as id1_0_0_, course0_.instructor_id as instruct3_0_0_, course0_.title as title2_0_0_, instructor1_.id as id1_1_1_, instructor1_.email as email2_1_1_, instructor1_.first_name as first_na3_1_1_, instructor1_.instructor_detail_id as instruct5_1_1_, instructor1_.last_name as last_nam4_1_1_, instructor2_.id as id1_2_2_, instructor2_.hobby as hobby2_2_2_, instructor2_.youtube_channel as youtube_3_2_2_ from course course0_ left outer join instructor instructor1_ on course0_.instructor_id=instructor1_.id left outer join instructor_detail instructor2_ on instructor1_.instructor_detail_id=instructor2_.id where course0_.id=?
+Courses: Course [id=11, title=Programming Language, instructor=null]
+Hibernate: select reviews0_.course_id as course_i3_3_0_, reviews0_.id as id1_3_0_, reviews0_.id as id1_3_1_, reviews0_.comment as comment2_3_1_ from review reviews0_ where reviews0_.course_id=?
+Course Review: [Review [id=4, comment=Great Course], Review [id=5, comment=Cool Course], Review [id=6, comment=Awesome Course]]
+Done!

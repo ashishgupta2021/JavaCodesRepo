@@ -1,0 +1,16 @@
+// Post Request 
+// http://localhost:8080/topics
+
+{
+        "id": "java2",
+        "name": "java2",
+        "description": "Java 2 Description"
+}
+
+// GET
+
+// http://localhost:8080/topics
+
+// DELETE
+
+// http://localhost:8080/topics/spring

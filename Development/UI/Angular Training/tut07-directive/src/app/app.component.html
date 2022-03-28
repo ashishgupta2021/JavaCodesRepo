@@ -1,0 +1,26 @@
+<p appBasicHighlight>Style with me Basic directive!</p>
+<p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'red'">Style with me Better directive!</p>
+
+<ng-template [ngIf]="true">
+  <div>
+    <p>This is ng-template demo</p>
+  </div>
+</ng-template>
+
+
+<ng-template [ngIf]="false">
+  <div>
+    <p> This will not display</p>
+  </div>
+</ng-template>
+
+<div *appUnless="false">
+  <p> This is a custom directive</p>
+</div>
+
+<div [ngSwitch]="value">
+  <p *ngSwitchCase="5">Value is 5</p>
+  <p *ngSwitchCase="10">Value is 10</p>
+  <p *ngSwitchCase="100">Value is 100</p>
+  <p *ngSwitchDefault>Value is default</p>
+</div>

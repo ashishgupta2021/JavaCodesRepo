@@ -1,0 +1,29 @@
+# _1_CreateInstructorApp.java output
+
+Saving Instructor: Instructor [id=0, firstName=Niraj, lastName=Gupta, email=ashish@gmail.com, instructorDetail=InstructorDetail [id=0, youtubeChannel=http://www.youtube.com, hobby=Youtube!]]
+Hibernate: insert into instructor_detail (hobby, youtube_channel) values (?, ?)
+Hibernate: insert into instructor (email, first_name, instructor_detail_id, last_name) values (?, ?, ?, ?)
+Done!
+
+
+# _2_CreateCoursesApp.java output
+
+Hibernate: select instructor0_.id as id1_1_0_, instructor0_.email as email2_1_0_, instructor0_.first_name as first_na3_1_0_, instructor0_.instructor_detail_id as instruct5_1_0_, instructor0_.last_name as last_nam4_1_0_, instructor1_.id as id1_2_1_, instructor1_.hobby as hobby2_2_1_, instructor1_.youtube_channel as youtube_3_2_1_ from instructor instructor0_ left outer join instructor_detail instructor1_ on instructor0_.instructor_detail_id=instructor1_.id where instructor0_.id=?
+Hibernate: insert into course (instructor_id, title) values (?, ?)
+Hibernate: insert into course (instructor_id, title) values (?, ?)
+Done!
+
+# _3_DeleteCourseApp.java
+
+Hibernate: select course0_.id as id1_0_0_, course0_.instructor_id as instruct3_0_0_, course0_.title as title2_0_0_, instructor1_.id as id1_1_1_, instructor1_.email as email2_1_1_, instructor1_.first_name as first_na3_1_1_, instructor1_.instructor_detail_id as instruct5_1_1_, instructor1_.last_name as last_nam4_1_1_, instructor2_.id as id1_2_2_, instructor2_.hobby as hobby2_2_2_, instructor2_.youtube_channel as youtube_3_2_2_ from course course0_ left outer join instructor instructor1_ on course0_.instructor_id=instructor1_.id left outer join instructor_detail instructor2_ on instructor1_.instructor_detail_id=instructor2_.id where course0_.id=?
+Deleting Course: Course [id=10, title=Learn Guitar, instructor=Instructor [id=1, firstName=Niraj, lastName=Gupta, email=ashish@gmail.com, instructorDetail=InstructorDetail [id=1, youtubeChannel=http://www.youtube.com, hobby=Youtube!]]]
+Hibernate: delete from course where id=?
+Done!
+
+# _4_GetInstructorCoursesApp.java
+
+Hibernate: select instructor0_.id as id1_1_0_, instructor0_.email as email2_1_0_, instructor0_.first_name as first_na3_1_0_, instructor0_.instructor_detail_id as instruct5_1_0_, instructor0_.last_name as last_nam4_1_0_, instructor1_.id as id1_2_1_, instructor1_.hobby as hobby2_2_1_, instructor1_.youtube_channel as youtube_3_2_1_ from instructor instructor0_ left outer join instructor_detail instructor1_ on instructor0_.instructor_detail_id=instructor1_.id where instructor0_.id=?
+Instructor: Instructor [id=1, firstName=Niraj, lastName=Gupta, email=ashish@gmail.com, instructorDetail=InstructorDetail [id=1, youtubeChannel=http://www.youtube.com, hobby=Youtube!]]
+Hibernate: select courses0_.instructor_id as instruct3_0_0_, courses0_.id as id1_0_0_, courses0_.id as id1_0_1_, courses0_.instructor_id as instruct3_0_1_, courses0_.title as title2_0_1_ from course courses0_ where courses0_.instructor_id=?
+Courses: [Course [id=11, title=Learn Programming Language, instructor=Instructor [id=1, firstName=Niraj, lastName=Gupta, email=ashish@gmail.com, instructorDetail=InstructorDetail [id=1, youtubeChannel=http://www.youtube.com, hobby=Youtube!]]]]
+Done!

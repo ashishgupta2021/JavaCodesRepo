@@ -1,0 +1,6 @@
+div {
+    width: 300px;
+    padding: 4px;
+    background-color: lightblue;
+    box-shadow: circle;
+}

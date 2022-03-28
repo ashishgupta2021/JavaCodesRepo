@@ -1,0 +1,11 @@
+server:
+  port: 8761
+
+#Eureka Server Configuration
+#Because this is my Eureka server, So it doesn't have to go to Eureka server
+#for registering itself. and that's the reason both property are false
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false

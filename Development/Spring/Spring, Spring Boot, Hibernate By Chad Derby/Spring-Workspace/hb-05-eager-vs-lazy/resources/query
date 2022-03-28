@@ -1,0 +1,44 @@
+# _1_EagerLazyApp.java output
+
+Hibernate: select instructor0_.id as id1_1_0_, instructor0_.email as email2_1_0_, instructor0_.first_name as first_na3_1_0_, instructor0_.instructor_detail_id as instruct5_1_0_, instructor0_.last_name as last_nam4_1_0_, instructor1_.id as id1_2_1_, instructor1_.hobby as hobby2_2_1_, instructor1_.youtube_channel as youtube_3_2_1_ from instructor instructor0_ left outer join instructor_detail instructor1_ on instructor0_.instructor_detail_id=instructor1_.id where instructor0_.id=?
+Instructor: Instructor [id=1, firstName=Niraj, lastName=Gupta, email=ashish@gmail.com, instructorDetail=InstructorDetail [id=1, youtubeChannel=http://www.youtube.com, hobby=Youtube!]]
+Hibernate: select courses0_.instructor_id as instruct3_0_0_, courses0_.id as id1_0_0_, courses0_.id as id1_0_1_, courses0_.instructor_id as instruct3_0_1_, courses0_.title as title2_0_1_ from course courses0_ where courses0_.instructor_id=?
+Courses: [Course [id=11, title=Learn Programming Language, instructor=Instructor [id=1, firstName=Niraj, lastName=Gupta, email=ashish@gmail.com, instructorDetail=InstructorDetail [id=1, youtubeChannel=http://www.youtube.com, hobby=Youtube!]]]]
+Done!
+
+
+# __2_EagerLazySessionCloseApp.java output
+# Exception because session is closed. Lazy require that session should be open
+
+Hibernate: select instructor0_.id as id1_1_0_, instructor0_.email as email2_1_0_, instructor0_.first_name as first_na3_1_0_, instructor0_.instructor_detail_id as instruct5_1_0_, instructor0_.last_name as last_nam4_1_0_, instructor1_.id as id1_2_1_, instructor1_.hobby as hobby2_2_1_, instructor1_.youtube_channel as youtube_3_2_1_ from instructor instructor0_ left outer join instructor_detail instructor1_ on instructor0_.instructor_detail_id=instructor1_.id where instructor0_.id=?
+Instructor: Instructor [id=1, firstName=Niraj, lastName=Gupta, email=ashish@gmail.com, instructorDetail=InstructorDetail [id=1, youtubeChannel=http://www.youtube.com, hobby=Youtube!]]
+Hibernate: select courses0_.instructor_id as instruct3_0_0_, courses0_.id as id1_0_0_, courses0_.id as id1_0_1_, courses0_.instructor_id as instruct3_0_1_, courses0_.title as title2_0_1_ from course courses0_ where courses0_.instructor_id=?
+Courses: [Course [id=11, title=Learn Programming Language, instructor=Instructor [id=1, firstName=Niraj, lastName=Gupta, email=ashish@gmail.com, instructorDetail=InstructorDetail [id=1, youtubeChannel=http://www.youtube.com, hobby=Youtube!]]]]
+java.lang.IllegalStateException: org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl@4998e74b is closed
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.errorIfClosed(AbstractLogicalConnectionImplementor.java:37)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:137)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getConnectionForTransactionManagement(LogicalConnectionManagedImpl.java:274)
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.commit(AbstractLogicalConnectionImplementor.java:86)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:282)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at apps._2_AppEagerLazySessionClose.getInstructorCourses(_2_AppEagerLazySessionClose.java:40)
+	at apps._2_AppEagerLazySessionClose.main(_2_AppEagerLazySessionClose.java:14)
+
+
+# _3_EagerLazySessionCloseResolveOption1App.java
+
+Hibernate: select instructor0_.id as id1_1_0_, instructor0_.email as email2_1_0_, instructor0_.first_name as first_na3_1_0_, instructor0_.instructor_detail_id as instruct5_1_0_, instructor0_.last_name as last_nam4_1_0_, instructor1_.id as id1_2_1_, instructor1_.hobby as hobby2_2_1_, instructor1_.youtube_channel as youtube_3_2_1_ from instructor instructor0_ left outer join instructor_detail instructor1_ on instructor0_.instructor_detail_id=instructor1_.id where instructor0_.id=?
+Instructor: Instructor [id=1, firstName=Niraj, lastName=Gupta, email=ashish@gmail.com, instructorDetail=InstructorDetail [id=1, youtubeChannel=http://www.youtube.com, hobby=Youtube!]]
+Hibernate: select courses0_.instructor_id as instruct3_0_0_, courses0_.id as id1_0_0_, courses0_.id as id1_0_1_, courses0_.instructor_id as instruct3_0_1_, courses0_.title as title2_0_1_ from course courses0_ where courses0_.instructor_id=?
+Courses: [Course [id=11, title=Learn Programming Language, instructor=Instructor [id=1, firstName=Niraj, lastName=Gupta, email=ashish@gmail.com, instructorDetail=InstructorDetail [id=1, youtubeChannel=http://www.youtube.com, hobby=Youtube!]]]]
+Courses: [Course [id=11, title=Learn Programming Language, instructor=Instructor [id=1, firstName=Niraj, lastName=Gupta, email=ashish@gmail.com, instructorDetail=InstructorDetail [id=1, youtubeChannel=http://www.youtube.com, hobby=Youtube!]]]]
+Done!
+
+# _4_EagerLazySessionCloseResolveOption2App.java
+
+Hibernate: select instructor0_.id as id1_1_0_, courses1_.id as id1_0_1_, instructor0_.email as email2_1_0_, instructor0_.first_name as first_na3_1_0_, instructor0_.instructor_detail_id as instruct5_1_0_, instructor0_.last_name as last_nam4_1_0_, courses1_.instructor_id as instruct3_0_1_, courses1_.title as title2_0_1_, courses1_.instructor_id as instruct3_0_0__, courses1_.id as id1_0_0__ from instructor instructor0_ inner join course courses1_ on instructor0_.id=courses1_.instructor_id where instructor0_.id=?
+Hibernate: select instructor0_.id as id1_2_0_, instructor0_.hobby as hobby2_2_0_, instructor0_.youtube_channel as youtube_3_2_0_, instructor1_.id as id1_1_1_, instructor1_.email as email2_1_1_, instructor1_.first_name as first_na3_1_1_, instructor1_.instructor_detail_id as instruct5_1_1_, instructor1_.last_name as last_nam4_1_1_ from instructor_detail instructor0_ left outer join instructor instructor1_ on instructor0_.id=instructor1_.instructor_detail_id where instructor0_.id=?
+Hibernate: select instructor0_.id as id1_1_1_, instructor0_.email as email2_1_1_, instructor0_.first_name as first_na3_1_1_, instructor0_.instructor_detail_id as instruct5_1_1_, instructor0_.last_name as last_nam4_1_1_, instructor1_.id as id1_2_0_, instructor1_.hobby as hobby2_2_0_, instructor1_.youtube_channel as youtube_3_2_0_ from instructor instructor0_ left outer join instructor_detail instructor1_ on instructor0_.instructor_detail_id=instructor1_.id where instructor0_.instructor_detail_id=?
+Instructor: Instructor [id=1, firstName=Niraj, lastName=Gupta, email=ashish@gmail.com, instructorDetail=InstructorDetail [id=1, youtubeChannel=http://www.youtube.com, hobby=Youtube!]]
+Courses: [Course [id=11, title=Learn Programming Language, instructor=Instructor [id=1, firstName=Niraj, lastName=Gupta, email=ashish@gmail.com, instructorDetail=InstructorDetail [id=1, youtubeChannel=http://www.youtube.com, hobby=Youtube!]]]]
+Done!
